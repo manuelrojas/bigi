@@ -1,11 +1,13 @@
 const faunadb = require('faunadb')
 
 // your secret hash
-const secret = process.env.FAUNADB_SECRET_KEY
+const secret = process.env.FAUNADB_SECRET
+console.log(secret)
 const q = faunadb.query
 const client = new faunadb.Client({ secret })
 
 export default async (req, res) => {
+ 
     try {
       const dbs = await client.query(
         q.Map(
